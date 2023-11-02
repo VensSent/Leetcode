@@ -31,16 +31,41 @@ Note that because m = 0, there are no elements in nums1. The 0 is only there to 
 
 */
 
-
 class Solution {
     public void merge(int[] nums1, int m, int[] nums2, int n) {
-        for (int j = 0, i = m; j < n; j++) {
-            nums1[i] = nums2[j];
-            i++;
+        
+        int min, isSorted = 1, length = nums1.length, buff , i = 0, a, b;
+		int[] nums = new int[nums1.length];
+
+        for (int k = m, j = 0; k<m+n;k++,j++){
+            nums1[k] = nums2[j];
+            System.out.println(Arrays.toString(nums1));
         }
-        Arrays.sort(nums1);
+
+        for (i=0;i<length-1;i++){
+            if (nums1[i]>nums1[i+1]){
+                min = nums1[i+1];
+                buff = nums1[i];
+                nums1[i] = min;
+                nums1[i+1] = buff;
+                // System.out.println(Arrays.toString(nums1));
+                i = -1;
+            } 
+        }
     }
 }
+
+
+
+// class Solution {
+//     public void merge(int[] nums1, int m, int[] nums2, int n) {
+//         for (int j = 0, i = m; j < n; j++) {
+//             nums1[i] = nums2[j];
+//             i++;
+//         }
+//         Arrays.sort(nums1);
+//     }
+// }
 
 
 /*
